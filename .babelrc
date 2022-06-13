@@ -17,7 +17,7 @@
           "@middleware": "./src/api/middleware",
           "@utils": "./src/utils",
           "@root": "./src",
-          "@models": "./src/database/models",
+          "@models": "./src/database/model/gatewayModel.js",
           "@app": "./src/app",
           "@database": "./src/database"
         }

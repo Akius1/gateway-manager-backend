@@ -1,26 +1,23 @@
 import { Router } from "express";
+import GateWayController from "../controller/gatewayController";
 const router = Router();
+import GateWayModel from "@models";
+
+const schema = new GateWayModel()
+
 
 
 //Post Method
-router.post('/post', (req, res) => {
-    res.send('Post API')
-})
+router.post('/create-gateway', GateWayController.createGateway);
 
 //Get all Method
-router.get('/getAll', (req, res) => {
-    res.send('Get All API')
-})
+router.get('/gateway/all', GateWayController.getAllGateway)
 
 //Get by ID Method
-router.get('/getOne/:id', (req, res) => {
-    res.send('Get by ID API')
-})
+router.get('/gateway/:id', GateWayController.getGatewayById)
 
 //Update by ID Method
-router.patch('/update/:id', (req, res) => {
-    res.send('Update by ID API')
-})
+router.patch('/gateway/addDevice/:id', GateWayController.addDevice)
 
 //Delete by ID Method
 router.delete('/delete/:id', (req, res) => {
