@@ -2,13 +2,15 @@ import { Router } from "express";
 import GateWayController from "../controller/gatewayController";
 const router = Router();
 import GateWayModel from "@models";
+import ValidationSchema from "../middleware/validationSchema";
+import { addDevice, addGateway } from "../controller/validation";
 
 const schema = new GateWayModel()
 
 
 
 //Post Method
-router.post('/create-gateway', GateWayController.createGateway);
+router.post('/create-gateway', ValidationSchema.validateBody(addGateway), GateWayController.createGateway);
 
 //Get all Method
 router.get('/gateway/all', GateWayController.getAllGateway)
@@ -17,7 +19,7 @@ router.get('/gateway/all', GateWayController.getAllGateway)
 router.get('/gateway/:id', GateWayController.getGatewayById)
 
 //Update by ID Method
-router.patch('/gateway/addDevice/:id', GateWayController.addDevice)
+router.patch('/gateway/addDevice/:id', ValidationSchema.validateBody(addDevice), GateWayController.addDevice)
 //Update by ID Method
 router.patch('/gateway/remove-device/:id/:device', GateWayController.removeDevice)
 
