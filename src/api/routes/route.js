@@ -18,6 +18,8 @@ router.get('/gateway/:id', GateWayController.getGatewayById)
 
 //Update by ID Method
 router.patch('/gateway/addDevice/:id', GateWayController.addDevice)
+//Update by ID Method
+router.patch('/gateway/remove-device/:id/:device', GateWayController.removeDevice)
 
 //Delete by ID Method
 router.delete('/delete/:id', (req, res) => {
