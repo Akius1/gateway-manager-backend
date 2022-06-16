@@ -51,7 +51,7 @@ app.use(_express["default"].json());
 app.use("/api", _route["default"]);
 
 if (process.env.NODE_ENV !== "test") {
-  app.listen(8000, function () {
+  app.listen(process.env.PORT || 8000, function () {
     console.log("Server Started at ".concat(8000));
   });
 }

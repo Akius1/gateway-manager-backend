@@ -34,7 +34,7 @@ app.use(express.json());
 app.use("/api", routes);
 
 if (process.env.NODE_ENV !== "test") {
-    app.listen(8000, () => {
+    app.listen(process.env.PORT || 8000, () => {
         console.log(`Server Started at ${8000}`);
       });
   }
