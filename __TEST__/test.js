@@ -18,13 +18,14 @@ describe("Create GateWay", () => {
       expect(res.body).toBeTruthy();
       expect(res.body.data.name).toEqual("Infinix3");
       expect(res.body.data.ipv4Address).toEqual("192.168.1.3");
-      expect(res.body.data.ipv4Address).toMatch(/\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.|$)){4}\b/);
+      expect(res.body.data.ipv4Address).toMatch(
+        /\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.|$)){4}\b/
+      );
     });
   });
 
   describe("GET /gateway/all", () => {
     test("Retrieve all gateway devices", async () => {
-
       let mockDevice1 = { name: "Infinix3", ipv4Address: "192.168.1.3" };
       let mockDevice2 = { name: "Android", ipv4Address: "192.0.2.146" };
 
