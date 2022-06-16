@@ -1,6 +1,5 @@
 import GateWayModel from "@models";
 import Response from "../service/response";
-import { v4 as uuidv4 } from "uuid";
 
 class GateWayController {
   /**
@@ -20,7 +19,7 @@ class GateWayController {
       const dataToSave = await data.save();
       return Response.success(
         { req, res },
-        200,
+        201,
         dataToSave,
         "Gateway Created Successfully"
       );

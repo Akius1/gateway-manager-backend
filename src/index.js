@@ -6,6 +6,7 @@ import cors from "cors";
 
 dotenv.config();
 const mongoString = process.env.DATABASE_URL;
+if (process.env.NODE_ENV !== "test") {
 mongoose.connect(mongoString);
 const database = mongoose.connection;
 
@@ -16,7 +17,7 @@ database.on("error", (error) => {
 database.once("connected", () => {
   console.log("Database Connected");
 });
-
+}
 const app = express();
 const corsOptions = {
   origin: "*",
@@ -32,6 +33,12 @@ app.use(express.json());
 
 app.use("/api", routes);
 
-app.listen(8000, () => {
-  console.log(`Server Started at ${8000}`);
-});
+if (process.env.NODE_ENV !== "test") {
+    app.listen(8000, () => {
+        console.log(`Server Started at ${8000}`);
+      });
+  }
+
+  export default app;
+
+
