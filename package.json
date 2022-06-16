@@ -5,9 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start:dev": "nodemon --exec babel-node src/index.js",
-    "start": "node  src/index.js",
-    "test": "env NODE_ENV=test jest --forceExit --runInBand"
+    "test": "env NODE_ENV=test jest --forceExit --runInBand",
+    "build": "babel src -d dist --copy-files",
+    "start": "node ./dist/indexr.js -i max"
   },
+  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Akius1/gateway-manager-backend.git"
